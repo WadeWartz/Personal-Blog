@@ -1,8 +1,8 @@
 # W@rtz.io - Penetration Tester Blog
 title: "W@rtz.io"
 description: "Penetration testing research, writeups, and tools."
-url: "https://username.github.io"  # Change to your GitHub Pages URL
-baseurl: ""                         # Leave empty for username.github.io repos
+url: "https://wadewartz.github.io"
+baseurl: "/Personal-Blog"
 
 # Author info — edit these
 author:
