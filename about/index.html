@@ -1,0 +1,103 @@
+---
+layout: about
+title: About
+permalink: /about/
+---
+
+<header class="about-header">
+  <h1 class="about-title">{{ site.author.name }}</h1>
+  <p class="about-subtitle">Penetration Tester &amp; Security Researcher</p>
+</header>
+
+<!-- ── About / Bio ────────────────────────────────────────── -->
+<section class="about-section">
+  <h2 class="about-section-title">// whoami</h2>
+  <p>
+    I'm a penetration tester with a focus on web application security,
+    Active Directory attacks, and red team methodology. This blog is my
+    personal research notebook — a place to document what I learn, break,
+    and build along the way.
+  </p>
+  <p>
+    I actively practice on platforms like Hack The Box, TryHackMe, and
+    VulnHub, and I chase real CVEs whenever I get the chance. Everything
+    here is written for educational and research purposes.
+  </p>
+</section>
+
+<!-- ── Skills ─────────────────────────────────────────────── -->
+<section class="about-section">
+  <h2 class="about-section-title">// skills &amp; focus areas</h2>
+  <div class="skills-grid">
+    <span class="skill-item">Web Application Testing</span>
+    <span class="skill-item">Active Directory / AD Attacks</span>
+    <span class="skill-item">Network Penetration Testing</span>
+    <span class="skill-item">Exploit Development</span>
+    <span class="skill-item">Privilege Escalation (Linux / Windows)</span>
+    <span class="skill-item">OSINT</span>
+    <span class="skill-item">Scripting (Python, Bash, PowerShell)</span>
+    <span class="skill-item">Reverse Engineering (beginner)</span>
+    <span class="skill-item">CTF (HackTheBox / TryHackMe)</span>
+    <span class="skill-item">Vulnerability Research</span>
+  </div>
+</section>
+
+<!-- ── Certifications ──────────────────────────────────────── -->
+<section class="about-section">
+  <h2 class="about-section-title">// certifications</h2>
+  <ul class="cert-list">
+    <li class="cert-item">
+      <span class="cert-badge cert-badge--progress">In Progress</span>
+      OSCP &mdash; Offensive Security Certified Professional
+    </li>
+    <li class="cert-item">
+      <span class="cert-badge cert-badge--progress">In Progress</span>
+      CPTS &mdash; HTB Certified Penetration Testing Specialist
+    </li>
+    <li class="cert-item">
+      <span class="cert-badge cert-badge--planned">Planned</span>
+      CRTE &mdash; Certified Red Team Expert
+    </li>
+    <li class="cert-item">
+      <span class="cert-badge cert-badge--planned">Planned</span>
+      eWPTX &mdash; eLearnSecurity Web Application Penetration Tester eXtreme
+    </li>
+  </ul>
+</section>
+
+<!-- ── Tools I Use ─────────────────────────────────────────── -->
+<section class="about-section">
+  <h2 class="about-section-title">// tooling</h2>
+  <div class="skills-grid">
+    <span class="skill-item">Burp Suite Pro</span>
+    <span class="skill-item">Nmap / Rustscan</span>
+    <span class="skill-item">Metasploit Framework</span>
+    <span class="skill-item">Impacket</span>
+    <span class="skill-item">Bloodhound / SharpHound</span>
+    <span class="skill-item">Gobuster / Feroxbuster</span>
+    <span class="skill-item">Ligolo-ng / Chisel</span>
+    <span class="skill-item">CrackMapExec / NetExec</span>
+    <span class="skill-item">ffuf / wfuzz</span>
+    <span class="skill-item">pwndbg / pwntools</span>
+  </div>
+</section>
+
+<!-- ── Contact ─────────────────────────────────────────────── -->
+<section class="about-section">
+  <h2 class="about-section-title">// contact</h2>
+  <p>Feel free to reach out for research discussions, collaboration, or just to say hi.</p>
+  <div class="contact-links">
+    {% if site.author.github %}
+    <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener" class="contact-link">[github ↗]</a>
+    {% endif %}
+    {% if site.author.twitter %}
+    <a href="https://x.com/{{ site.author.twitter }}" target="_blank" rel="noopener" class="contact-link">[x/twitter ↗]</a>
+    {% endif %}
+    {% if site.author.linkedin %}
+    <a href="https://linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener" class="contact-link">[linkedin ↗]</a>
+    {% endif %}
+    {% if site.author.email %}
+    <a href="mailto:{{ site.author.email }}" class="contact-link">[email]</a>
+    {% endif %}
+  </div>
+</section>

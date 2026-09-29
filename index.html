@@ -1,0 +1,65 @@
+---
+layout: home
+title: Home
+---
+
+<section class="home-hero">
+  <!-- ASCII art banner -->
+  <div class="home-ascii">
+ ██╗    ██╗ █████╗ ██████╗ ████████╗███████╗
+ ██║    ██║██╔══██╗██╔══██╗╚══██╔══╝╚══███╔╝
+ ██║ █╗ ██║███████║██████╔╝   ██║     ███╔╝
+ ██║███╗██║██╔══██║██╔══██╗   ██║    ███╔╝
+ ╚███╔███╔╝██║  ██║██║  ██║   ██║   ███████╗
+  ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝   ╚══════╝
+  </div>
+  <h2 class="home-alias">(a.k.a. {{ site.author.alias }})</h2>
+
+  <div class="home-bio">
+    <p>
+      Penetration tester &amp; security researcher. I document offensive security
+      research, CTF machine writeups, vulnerability analysis, and custom tooling
+      here as a personal knowledge base and public reference.
+    </p>
+    <p>
+      Currently pursuing <span class="text-orange">OSCP</span> &amp;
+      <span class="text-orange">CPTS</span>. Interested in web application security,
+      Active Directory attacks, exploit development, and red team methodology.
+    </p>
+  </div>
+</section>
+
+<!-- ── Disclaimer ────────────────────────────────────────── -->
+<div class="disclaimer">
+  <span class="disclaimer-icon">⚠</span>
+  <p>
+    The design and visual style of this site is inspired by
+    <a href="https://www.beneisner.io/" target="_blank" rel="noopener noreferrer">beneisner.io</a>
+    by Ben Eisner. All blog content — including research notes, writeups, and tools — is my own original work.
+    The information shared here reflects my personal research and may not always be accurate.
+    <strong>Constructive feedback is always welcome</strong> — if you spot a mistake or want to add something,
+    feel free to reach out.
+  </p>
+</div>
+
+<!-- ── Recent Posts ─────────────────────────────────────── -->
+<div class="home-section">
+  <h2 class="home-section-title">Recent Posts</h2>
+
+  <div class="post-list">
+    {% for post in site.posts limit: 8 %}
+    <a href="{{ post.url | relative_url }}" class="post-item">
+      <div class="post-item-meta">
+        <span class="post-item-icon post-category tag-{{ post.category | default: 'general' }}">&#x1F5CE;</span>
+        <span class="post-item-date">{{ post.date | date: "%d-%b-%Y" | upcase }}</span>
+        {% if post.category %}
+          <span class="post-category tag-{{ post.category }}" style="margin-left:0.25rem;">[{{ post.category | upcase }}]</span>
+        {% endif %}
+      </div>
+      <span class="post-item-title">{{ post.title }}</span>
+    </a>
+    {% endfor %}
+  </div>
+
+  <a href="{{ '/posts/' | relative_url }}" class="view-all-link">[view all posts →]</a>
+</div>

@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Jekyll: Serve (live reload)",
+      "type": "shell",
+      "command": "bundle exec jekyll serve --livereload",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      },
+      "problemMatcher": [],
+      "detail": "Start Jekyll dev server at http://localhost:4000 with live reload"
+    },
+    {
+      "label": "Jekyll: Build (production)",
+      "type": "shell",
+      "command": "bundle exec jekyll build",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": [],
+      "detail": "Build the site into the _site/ folder (no server)"
+    },
+    {
+      "label": "Jekyll: Serve (drafts)",
+      "type": "shell",
+      "command": "bundle exec jekyll serve --livereload --drafts",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "clear": true
+      },
+      "problemMatcher": [],
+      "detail": "Start Jekyll dev server and include _drafts/ posts"
+    }
+  ]
+}

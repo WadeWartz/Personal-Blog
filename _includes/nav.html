@@ -1,0 +1,31 @@
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="{{ '/' | relative_url }}" class="nav-logo" aria-label="Home">
+      <span class="nav-logo-bracket">[</span>
+      <span class="nav-logo-text">W@rtz</span>
+      <span class="nav-logo-bracket">]</span>
+    </a>
+    <div class="nav-links">
+      <a href="{{ '/' | relative_url }}"
+         class="nav-link {% if page.url == '/' %}nav-link--active{% endif %}">
+        [home]
+      </a>
+      <a href="{{ '/posts/' | relative_url }}"
+         class="nav-link {% if page.url contains '/posts' %}nav-link--active{% endif %}">
+        [posts]
+      </a>
+      <a href="{{ '/about/' | relative_url }}"
+         class="nav-link {% if page.url contains '/about' %}nav-link--active{% endif %}">
+        [about]
+      </a>
+    </div>
+    <span class="nav-cwd">
+      ~/
+      {%- if page.url == '/' -%}HOME
+      {%- elsif page.url contains '/posts' -%}POSTS
+      {%- elsif page.url contains '/about' -%}ABOUT
+      {%- else -%}{{ page.title | upcase | truncate: 20 }}
+      {%- endif -%}
+    </span>
+  </div>
+</nav>

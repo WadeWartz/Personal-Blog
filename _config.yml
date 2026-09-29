@@ -1,0 +1,77 @@
+# W@rtz.io - Penetration Tester Blog
+title: "W@rtz.io"
+description: "Penetration testing research, writeups, and tools."
+url: "https://username.github.io"  # Change to your GitHub Pages URL
+baseurl: ""                         # Leave empty for username.github.io repos
+
+# Author info — edit these
+author:
+  name: "W@rtz"
+  alias: "phtun"
+  email: "your@email.com"
+  github: "your-github-username"
+  twitter: ""
+  linkedin: ""
+  bio: >
+    Penetration tester & security researcher. Documenting offensive security
+    research, CTF writeups, vulnerability analysis, and custom tooling.
+    Currently pursuing OSCP/CPTS.
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /posts/:year/:month/:day/:title/
+
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+paginate: 10
+paginate_path: "/posts/page/:num/"
+
+# Collections / post categories
+collections:
+  writeups:
+    output: true
+    permalink: /posts/writeups/:name/
+  research:
+    output: true
+    permalink: /posts/research/:name/
+  tools:
+    output: true
+    permalink: /posts/tools/:name/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "writeups"
+    values:
+      layout: "post"
+      category: "writeups"
+  - scope:
+      path: ""
+      type: "research"
+    values:
+      layout: "post"
+      category: "research"
+  - scope:
+      path: ""
+      type: "tools"
+    values:
+      layout: "post"
+      category: "tools"
+
+# Exclude from build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor

@@ -1,0 +1,65 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-header">
+    <div class="post-meta-top">
+      <span class="post-category tag-{{ page.category | default: 'general' }}">
+        [{{ page.category | default: 'post' | upcase }}]
+      </span>
+      <span class="post-date">{{ page.date | date: "%d-%b-%Y" | upcase }}</span>
+    </div>
+    <h1 class="post-title">{{ page.title }}</h1>
+    {% if page.description %}
+      <p class="post-description">{{ page.description }}</p>
+    {% endif %}
+    {% if page.tags and page.tags.size > 0 %}
+      <div class="post-tags">
+        {% for tag in page.tags %}
+          <span class="tag">#{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="post-divider"><!-- - - - - - - - - - - - - - - - - - - --></div>
+  </header>
+
+  <div class="post-content">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    <div class="post-divider"><!-- - - - - - - - - - - - - - - - - - - --></div>
+
+    <!-- Content License Notice -->
+    <div class="post-license">
+      <span class="post-license-icon">©</span>
+      <p>
+        <strong>{{ page.date | date: "%Y" }} {{ site.author.name }}.</strong>
+        All content on this blog is licensed under
+        <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer">CC BY-NC-ND 4.0</a>.
+        You are free to read and learn from this material, but you may <strong>not</strong> copy,
+        republish, or use it commercially without explicit permission.
+        Linking back to the original post is always appreciated.
+        <br/><br/>
+        The information here reflects my personal research and may not always be accurate.
+        <strong>Constructive feedback is always welcome</strong> — if you spot an error or have something to add,
+        feel free to reach out{% if site.author.email %} at
+        <a href="mailto:{{ site.author.email }}">{{ site.author.email }}</a>{% endif %}.
+      </p>
+    </div>
+
+    <div class="post-nav">
+      {% if page.previous.url %}
+        <a href="{{ page.previous.url | relative_url }}" class="nav-link">
+          <span class="nav-arrow">&larr;</span> {{ page.previous.title }}
+        </a>
+      {% endif %}
+      {% if page.next.url %}
+        <a href="{{ page.next.url | relative_url }}" class="nav-link nav-link--right">
+          {{ page.next.title }} <span class="nav-arrow">&rarr;</span>
+        </a>
+      {% endif %}
+    </div>
+    <a href="{{ '/posts/' | relative_url }}" class="back-link">[&larr; back to all posts]</a>
+  </footer>
+</article>

@@ -1,0 +1,44 @@
+<footer class="footer">
+  <ul class="footer-links">
+    {% if site.author.github %}
+    <li>
+      <a href="https://github.com/{{ site.author.github }}" target="_blank" rel="noopener noreferrer" class="footer-link">
+        [github ↗]
+      </a>
+    </li>
+    {% endif %}
+    {% if site.author.twitter %}
+    <li>
+      <a href="https://x.com/{{ site.author.twitter }}" target="_blank" rel="noopener noreferrer" class="footer-link">
+        [x/twitter ↗]
+      </a>
+    </li>
+    {% endif %}
+    {% if site.author.linkedin %}
+    <li>
+      <a href="https://linkedin.com/in/{{ site.author.linkedin }}" target="_blank" rel="noopener noreferrer" class="footer-link">
+        [linkedin ↗]
+      </a>
+    </li>
+    {% endif %}
+    {% if site.author.email %}
+    <li>
+      <a href="mailto:{{ site.author.email }}" class="footer-link">
+        [email]
+      </a>
+    </li>
+    {% endif %}
+    <li>
+      <a href="{{ '/feed.xml' | relative_url }}" class="footer-link">[rss]</a>
+    </li>
+  </ul>
+  <p class="footer-copy">Copyright &copy; 2025 Backuardo Labs LLC</p>
+  <p class="footer-copy">Copyright &copy; {{ 'now' | date: "%Y" }} {{ site.author.name }} (Modified work)</p>
+  <p class="footer-copy footer-cc">
+    Blog content licensed under
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer" class="footer-link">
+      CC BY-NC-ND 4.0
+    </a>
+    &mdash; you may read and learn freely, but may not copy, republish, or use commercially without permission.
+  </p>
+</footer>

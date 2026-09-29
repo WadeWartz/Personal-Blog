@@ -1,0 +1,34 @@
+# Dependency cache
+.bundle/
+vendor/
+
+# Jekyll build output
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Env / secrets
+.env
+.env.*
+
+# Editor — keep tasks.json, ignore everything else
+.vscode/*
+!.vscode/tasks.json
+
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ruby
+*.gem
+*.rbc
+Gemfile.lock
+
+# Logs
+*.log
