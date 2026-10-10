@@ -23,7 +23,7 @@ tags: [arp, mitm, networking, kali, wireshark]
 - Unlike ARP spoofing this attack cuts the user entirely out of the network by setting up the same method of MitM but this time instead of using IP forwarding to send the data back to the victim, the attacker instead chooses not to. As a result, the data which was supposed to reach the user end up being dumped. 
 ## 5. ARP Spoofing, MitM methodology and demonstration
 - There are many ways of commiting ARP Spoofing like writing arp spoofing script with Python using scapy, etc. But in this lab, the tool arpspoof will be used to demostrate.
-![ARP Spoofing Lab Topology](/assets/images/arp-spoofing/lab-topology.png)
+![ARP Spoofing Lab Topology](/Personal-Blog/assets/images/arp-spoofing/lab-topology.png)
 ### 5.1. Setting up lab environment
 - In the virtual hardware setting for all VMs, the Network Adapter segment must be switched to Custom: LAN Segment (or Host-only). DO NOT use the default NAT mode if you are practicing this on a public network (NAT mode can accidentally leak malicious ARP packets into your physical host network, disrupting internet connectivity for others or triggering Network Intrusion Detection/Prevention Systems (IDS/IPS)).
 - Set up static IP:
@@ -32,14 +32,14 @@ tags: [arp, mitm, networking, kali, wireshark]
 		- Default Gateway: 192.168.100.1
 	- Kali: 
 		- IP Address: 192.168.100.3
-![Kali Static IP Setup](/assets/images/arp-spoofing/kali-static-ip.png)
+![Kali Static IP Setup](/Personal-Blog/assets/images/arp-spoofing/kali-static-ip.png)
 
 - Use these line to set up WiFi card eth0 and IP address for Kali VM
 ```bash
 sudo ip link set eth0 up
 sudo ifconfig eth0 192.168.100.3 netmask 255.255.255.0 up
 ```
-![eth0 Network Setup](/assets/images/arp-spoofing/eth0-setup.png)
+![eth0 Network Setup](/Personal-Blog/assets/images/arp-spoofing/eth0-setup.png)
 
 - Remember to turn on IP forwarding to prevent losing packet as MAC is used as the destination reference and if not the same address then it could result in packet being dumped (This could be called NetCut).
 ```bash
@@ -49,16 +49,16 @@ cat /proc/sys/net/ipv4/ip_forward //Use this line to check if ip forwarding is o
 ### 5.2. Demonstration
 
 - Use nmap to recon for active devices in the network
-![Nmap Network Recon](/assets/images/arp-spoofing/nmap-recon.png)
+![Nmap Network Recon](/Personal-Blog/assets/images/arp-spoofing/nmap-recon.png)
 
 - Turn on two terminal and use arpspoof to commit arp spoofing to route the traffic from you to the user and from you to the router, acting as the middle device. 
-![Arpspoof MitM Terminals](/assets/images/arp-spoofing/arpspoof-mitm.png)
+![Arpspoof MitM Terminals](/Personal-Blog/assets/images/arp-spoofing/arpspoof-mitm.png)
 - Use wireshark to check for packets you captured
-![Wireshark Packet Capture](/assets/images/arp-spoofing/wireshark-capture.png)
+![Wireshark Packet Capture](/Personal-Blog/assets/images/arp-spoofing/wireshark-capture.png)
 - Try to search for something on Window VM
-![Victim Browsing on Windows VM](/assets/images/arp-spoofing/victim-browsing.png)
+![Victim Browsing on Windows VM](/Personal-Blog/assets/images/arp-spoofing/victim-browsing.png)
 - On victim window vm, use arp -a to check for arp cache if there are two ips with the same mac which also occur when checking Wireshark
-![ARP Cache Poisoned Check](/assets/images/arp-spoofing/arp-cache-check.png)
+![ARP Cache Poisoned Check](/Personal-Blog/assets/images/arp-spoofing/arp-cache-check.png)
 
 ## 6. How to prevent ARP Spoofing or MitM attack ?
 - **Mandatory Virtual Private Networks (VPN):** Require the use of a secure, enterprise-grade VPN. A VPN establishes an encrypted tunnel between the endpoint and the VPN gateway. Even if a MitM attack successfully intercepts the local network traffic, the attacker only acquires heavily encrypted data that cannot be read or modified
